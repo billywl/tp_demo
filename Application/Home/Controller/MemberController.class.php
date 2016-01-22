@@ -8,7 +8,11 @@ class MemberController extends Controller {
 	 * 登录功能
 	 */
 	public function login(){
-		$this->display('login');
+    $array['name']    =    'thinkphp';
+    $array['email']   =    'liu21st@gmail.com';
+    $array['phone']   =    '12335678';
+		$this->assign($array);
+		$this->display();
 	}
 	
 	/**
