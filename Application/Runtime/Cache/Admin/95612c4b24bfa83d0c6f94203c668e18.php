@@ -2,8 +2,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="/Public/Admin/Images/css1/css.css" rel="stylesheet" type="text/css">
-<script language='javascript' src='/Public/Admin/Js/public.js'></script>
+<link href="/Public/Css/css.css" rel="stylesheet" type="text/css">
+<script language='javascript' src='/Public/Js/public.js'></script>
 </head>
 
 <SCRIPT language=javascript>
@@ -33,7 +33,7 @@ function fullmenu(url){
 
 
 <body>
-<form method="POST" action="index.php?Admin/Category/insert">
+<form method="POST" action="/admin.php/Category/addOk">
 <table class="table" cellspacing="1" cellpadding="2" width="99%" align="center" 
 border="0">
   <tbody>
@@ -43,28 +43,27 @@ border="0">
      <tr>
       <td class="td_bg" width="17%" height="23" align="right">所属分类</td>
       <td width="83%" class="td_bg">
-      <select name='cid' id='cid'>
+      <select name='cate_cid'>
       	<option value='0'>一级分类</option>
-      	{html_options values=$values output=$output selected=$selected}
+      	<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value='<?php echo ($vo["id"]); ?>'><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
       </select>
       </td>
     </tr>
     <tr>
       <td class="td_bg" width="17%" height="23" align="right">分类名</td>
       <td width="83%" class="td_bg">
-      	<input type="text" name="name" id='name' />
+      	<input type="text" name="cate_name" />
       </td>
     </tr>
     <tr>
       <td class="td_bg" width="17%" height="23" align="right">分类描述</td>
       <td width="83%" class="td_bg">
-      	<textarea name='content' id='content' rows='4' cols='80'></textarea>
+      	<textarea name='cate_content'  rows='4' cols='80'></textarea>
       </td>
     </tr>
     <tr>
       <td class="td_bg" width="17%" height="23"></td>
       <td class="td_bg" width="83%">
-		<input type='button' id='btnOk' value='录入' />
       	<input type="submit" name="submit" value="添加" />
       </td>
     </tr>

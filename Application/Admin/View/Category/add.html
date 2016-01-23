@@ -33,7 +33,7 @@ function fullmenu(url){
 
 
 <body>
-<form method="POST" action="index.php?Admin/Category/insert">
+<form method="POST" action="__CONTROLLER__/addOk">
 <table class="table" cellspacing="1" cellpadding="2" width="99%" align="center" 
 border="0">
   <tbody>
@@ -43,28 +43,30 @@ border="0">
      <tr>
       <td class="td_bg" width="17%" height="23" align="right">所属分类</td>
       <td width="83%" class="td_bg">
-      <select name='cid' id='cid'>
+      <select name='cate_cid'>
       	<option value='0'>一级分类</option>
-      	{html_options values=$values output=$output selected=$selected}
+      	<volist name='data'  id='vo'>
+      	<option value='{$vo.id}'>{$vo.name}</option>
+
+      	</volist>
       </select>
       </td>
     </tr>
     <tr>
       <td class="td_bg" width="17%" height="23" align="right">分类名</td>
       <td width="83%" class="td_bg">
-      	<input type="text" name="name" id='name' />
+      	<input type="text" name="cate_name" />
       </td>
     </tr>
     <tr>
       <td class="td_bg" width="17%" height="23" align="right">分类描述</td>
       <td width="83%" class="td_bg">
-      	<textarea name='content' id='content' rows='4' cols='80'></textarea>
+      	<textarea name='cate_content'  rows='4' cols='80'></textarea>
       </td>
     </tr>
     <tr>
       <td class="td_bg" width="17%" height="23"></td>
       <td class="td_bg" width="83%">
-		<input type='button' id='btnOk' value='录入' />
       	<input type="submit" name="submit" value="添加" />
       </td>
     </tr>
