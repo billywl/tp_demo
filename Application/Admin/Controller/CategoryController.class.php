@@ -3,7 +3,7 @@ namespace Admin\Controller;
 use Think\Controller;
 class CategoryController extends Controller {
 	
-	protected $_map             =   array();  // 字段映射定义
+
 	/**
 	 * 显示添加分类界面
 	 */
@@ -44,13 +44,79 @@ class CategoryController extends Controller {
 	/**
 	 * 操作,管理分类
 	 */
-/*  	public function test(){
-		$User = M('Category');
-$date=$User->create(); //创建User数据对象
-var_dump($date);
-$User->status = 1; // 设置默认的用户状态
-$User->create_time = time(); // 设置用户的创建时间
-var_dump($date); 
-
-	}  */
+	public function admin(){
+		$cate=D('Category');
+		$data=$cate->select();
+		$this->assign('data',$data);
+		$this->display();
+	}  
+	
+	
+	/**
+	 * 操作,批量删除
+	 */
+	public function deleteAll(){
+		//判断是否点击删除按钮
+		if(isset($_POST['deleteSubmit'])){
+			//接收要删除的id
+			$id=$_POST['id'];
+			//将要删除的id拼接为字符串
+			$str=implode(',', $id);
+			//实例化并删除
+			if(D('Category')->delete($str)){
+				$this->success('删除成功','admin');		
+			}else{
+				$this->error('删除失败','admin');		
+				
+			}
+		}	
+	}
+	
+	/**
+	 * 显示修改页面
+	 */
+	public function edit() {
+		// 要修改的id
+		$id = $_GET ['id'];
+		// 要修改的数据保存到数组row中
+		$row = D ( 'Category' )->find ( $id );
+		// 查询所有一级分类信息保存到数组data中
+		$data = D ( 'Category' )->where ( 'cid=0' )->select ();
+		// 为模板分配数据
+		$this->assign ( 'row', $row );
+		$this->assign ( 'data', $data );
+	
+		$this->display ( 'edit' );
+	}
+	
+	
+	/**
+	 * 修改功能
+	 */
+	public function editOk() {
+		if (isset ( $_POST ['submit'] )) {
+			$cate = D ( "Category" );
+			$cate->create ();
+			if ($cate->save ()) {
+				$this->success ( '修改成功', 'admin' );
+			} else {
+				$this->error ( '修改失败', 'admin' );
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
