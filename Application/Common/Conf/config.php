@@ -32,5 +32,7 @@ return array(
 		'DB_PORT'               => '3306',      // 端口
 		'DB_PREFIX'             => 'tp_',    		// 数据库表前缀
 		'DB_CHARSET'            => 'utf8',      // 数据库编码默认采用utf8
-
+		
+		'SHOW_PAGE_TRACE' =>true,	//开启页面Trace
+		//'LOAD_EXT_FILE'=>'user,user1', //添加扩展配置文件
 );

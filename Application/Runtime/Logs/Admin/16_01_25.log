@@ -1,0 +1,9 @@
+[ 2016-01-25T00:33:48+08:00 ] 127.0.0.1 /admin.php/Admin/createCode
+ERR: 非法操作:createCode
+
+[ 2016-01-25T00:33:57+08:00 ] 127.0.0.1 /admin.php/Index/UntitledFrame-1
+ERR: 非法操作:UntitledFrame-1
+
+[ 2016-01-25T00:35:06+08:00 ] 127.0.0.1 /admin.php/Index/UntitledFrame-1
+ERR: 非法操作:UntitledFrame-1
+

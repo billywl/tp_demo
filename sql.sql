@@ -1,4 +1,4 @@
-mysql -hlocalhost -uroot -p;
+mysql -hlocalhost -uroot -p
 
 use demo;
 
@@ -27,3 +27,12 @@ insert into tp_category values
 (null,'平板电视',default,10),
 (null,'手机外壳',default,5);
 
+create table tp_admin(
+id int not null primary key auto_increment,
+username varchar(20) not null comment '用户名',
+password varchar(20) not null not null comment '密码'
+)charset utf8 engine=innodb;
+
+alter table tp_admin change password newpassword varchar(20) not null; 
+
+insert into tp_admin values(null,'admin','admin');

@@ -47,6 +47,8 @@ class CategoryController extends Controller {
 	public function admin(){
 		$cate=D('Category');
 		$data=$cate->select();
+		//生成树状结构
+		$date=getTree($data);
 		$this->assign('data',$data);
 		$this->display();
 	}  

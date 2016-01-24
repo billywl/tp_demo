@@ -13,7 +13,7 @@
         <tr>
           <td width="30" align="left"><img onClick="switchBar(this)" height="15" alt="关闭左边管理菜单" src="/Public/Images/Admin/on-of.gif" width="15" border="0" /></td>
           <td width="320" align="left"><a class="top_link" 
-            href="#"><?php echo $_SESSION['username'];?></a><span class="top_link">┆</span> <a class="top_link" 
+            href="#"><?php echo (session('username')); ?></a><span class="top_link">┆</span> <a class="top_link" 
             href="#"><?php echo $qx;?></a><span class="top_link">┆</span> <a class="top_link" 
             href="mod_pass.php" target="main">修改密码</a>┆<a class="top_link" 
             href="login.html" target="_top">重新登录</a></td>
