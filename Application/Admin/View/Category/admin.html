@@ -50,7 +50,7 @@ td,th {
 						<input type='submit' name='deleteSubmit' value='删除' />
 					</th>
 				</tr>
-				<volist name='data' id='vo'>
+				<volist name='list' id='vo'>
 				<tr>
 					<td class="td_bg" width="5%" height="23" align="center">{$i}</td>
 					<td class="td_bg">{$vo.name}</td>
@@ -65,7 +65,7 @@ td,th {
 				</tr>
 				</volist>
 				<tr>
-					<td colspan="6">分页</td>
+					<td colspan="6">{$show}</td>
 				</tr>
 			</tbody>
 		</table>

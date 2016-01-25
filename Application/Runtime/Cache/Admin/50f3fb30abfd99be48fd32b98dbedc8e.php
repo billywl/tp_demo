@@ -50,7 +50,7 @@ td,th {
 						<input type='submit' name='deleteSubmit' value='删除' />
 					</th>
 				</tr>
-				<?php if(is_array($data)): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
 					<td class="td_bg" width="5%" height="23" align="center"><?php echo ($i); ?></td>
 					<td class="td_bg"><?php echo ($vo["name"]); ?></td>
 					<td class="td_bg"><?php echo ($vo["content"]); ?></td>
@@ -63,7 +63,7 @@ td,th {
 					</td>
 				</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				<tr>
-					<td colspan="6">分页</td>
+					<td colspan="6"><?php echo ($show); ?></td>
 				</tr>
 			</tbody>
 		</table>

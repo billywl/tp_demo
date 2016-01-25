@@ -44,14 +44,42 @@ class CategoryController extends Controller {
 	/**
 	 * 操作,管理分类
 	 */
-	public function admin(){
+/* 	public function admin(){
 		$cate=D('Category');
 		$data=$cate->select();
 		//生成树状结构
 		$date=getTree($data);
 		$this->assign('data',$data);
-		$this->display();
-	}  
+
+		$this->display(); // 输出模板
+
+	}   */
+	public function admin(){
+/* 		$cate=D('Category');
+
+		$count=$cate->field('id')->count();
+		$page       = new \Think\Page($count,3);
+
+// 		$page->setConfig('header','个会员');
+		$show       = $page->show();// 分页显示输出
+		$list = $cate->limit($page->firstRow.','.$page->listRows)->select();
+		
+		$this->assign('list',$list);// 赋值数据集
+		$this->assign('show',$show);// 赋值分页页脚输出
+		$this->display(); // 输出模板  */
+		
+ 		//需要实例化基类(或者未字段映射)
+ 				
+ 		$cate=M('Category');
+   		$list = $cate->field(true)->page($_GET['p'],3)->select();
+		$this->assign('list',$list);// 赋值数据集
+		$count      = $cate->field(true)->count();// 查询满足要求的总记录数
+		$Page       = new \Think\Page($count,3);// 实例化分页类 传入总记录数和每页显示的记录数
+		$show       = $Page->show();// 分页显示输出
+		$this->assign('show',$show);// 赋值分页输出
+		$this->display(); // 输出模板 
+	
+	}
 	
 	
 	/**

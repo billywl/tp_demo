@@ -14,6 +14,10 @@ class CategoryModel extends Model {
 			'cate_content' => 'content',
 			'cate_cid' => 'cid'
 	);  
+	public function page($each){
+
+	
+	}
 
 }
 

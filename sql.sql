@@ -33,6 +33,6 @@ username varchar(20) not null comment '用户名',
 password varchar(20) not null not null comment '密码'
 )charset utf8 engine=innodb;
 
-alter table tp_admin change password newpassword varchar(20) not null; 
+alter table tp_admin change password varchar(20) not null; 
 
 insert into tp_admin values(null,'admin','admin');

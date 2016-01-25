@@ -16,6 +16,8 @@ class AdminModel extends Model {
 	protected $_map             =   array(
 		
 	);  
+	
+
 
 }
 
